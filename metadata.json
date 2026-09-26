@@ -1,0 +1,8 @@
+{
+  "name": "DIGILEX Risk Platform",
+  "description": "A lightweight, fast theme with a clean design that works for blogs, portfolios, and businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
