@@ -93,12 +93,14 @@ export const ExecutiveOverview: React.FC<ExecutiveOverviewProps> = ({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ orgInfo: ORG_INFO, topPriorities: TOP_RISK_PRIORITIES })
       });
-      const data = await res.json();
-      if (data && data.insights && Array.isArray(data.insights) && data.insights.length > 0) {
-        setInsights(data.insights);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.insights && Array.isArray(data.insights) && data.insights.length > 0) {
+          setInsights(data.insights);
+        }
       }
     } catch (err: any) {
-      console.error("Failed to fetch quick insights:", err);
+      console.warn("Server endpoint not reachable (static hosting environment), using client posture insights:", err);
     } finally {
       setIsLoadingInsights(false);
     }
